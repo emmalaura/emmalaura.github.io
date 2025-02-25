@@ -1,15 +1,15 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    background: #FFFFFF; /* Background: White */
+    background: #f8f9fa; /* Background: White */
 }
 
 h1 {
     text-align: center;
     color: #004C99; /* Heading color: Blue */
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
 }
 
@@ -305,15 +305,14 @@ button:hover {
   }
   
 
-.hero {
+  .hero {
     background-image: url('photos/img5.JPG');
     background-size: cover;
     background-position: center;
-    height: 80vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -326,21 +325,72 @@ button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better contrast */
+    background: rgba(0, 0, 0, 0.6); /* Darker overlay for improved contrast */
     z-index: 1;
 }
 
 .hero-content {
+    font-family: 'Poppins', sans-serif;
     z-index: 2;
-    text-align: center;
     color: #fff;
-    animation: fadeInUp 1.5s ease-out; /* Fade-in animation */
+    padding: 20px;
+    max-width: 80%;
+    animation: fadeInUp 1.2s ease-out;
 }
 
+.hero h1 {
+    font-size: 2.5rem; 
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1.2rem; 
+    max-width: 550px;
+    margin: 0 auto 15px auto;
+    line-height: 1.5;
+    opacity: 0.85;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 14px 30px;
+    background: linear-gradient(45deg, #ff9800, #e68900);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+}
+
+.cta-button:hover {
+    background: linear-gradient(45deg, #e68900, #d47600);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 152, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+    .cta-button {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+}
+
+/* Smooth Fade-In Animation */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -349,45 +399,62 @@ button:hover {
 }
 
 
-.cta-button {
-    margin-top: 20px;
-    padding: 15px 25px;
-    background-color: #ff9800;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.2em;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-}
-
-.cta-button:hover {
-    background-color: #e68900;
-    transform: translateY(-2px); /* Lift button on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Stronger shadow */
-}
-
 .photo-gallery {
-    padding: 50px 0;
+    padding: 60px 20px;
     text-align: center;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.photo-gallery h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 600;
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid layout */
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Better spacing */
+    gap: 15px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.gallery-grid img {
+.gallery-item {
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item img {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-    transition: transform 0.3s;
+    height: 100%;
+    display: block;
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out;
 }
 
-.gallery-grid img:hover {
-    transform: scale(1.05);
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+.gallery-item img:hover {
+    transform: scale(1.08);
+}
+
+@media (max-width: 768px) {
+    .photo-gallery h2 {
+        font-size: 1.8rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Smaller images for smaller screens */
+    }
+}
+
 
 .cta-buttons {
     display: flex;
@@ -419,18 +486,6 @@ button:hover {
     }
 }
 
-@media (max-width: 768px) {
-    .navbar ul {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar a {
-        font-size: 0.9rem;
-    }
-    
     .contact {
         padding: 15px;
         margin: 20px auto;
@@ -456,10 +511,6 @@ button:hover {
         font-size: 0.9em;
     }
 
-    .navbar img {
-        height: 40px;
-    }
-
     .button-container button {
         padding: 8px 16px;
         font-size: 0.9em;
@@ -472,28 +523,6 @@ button:hover {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column; /* Stack the logo and links */
-        padding: 15px 0;
-    }
-    
-    .navbar ul {
-        flex-direction: column; /* Stack the links vertically */
-        width: 100%;
-        align-items: center; /* Center the links */
-        gap: 15px;
-    }
-    
-    .navbar a {
-        font-size: 1rem;
-        padding: 10px 0; /* Increase vertical padding for touch */
-        width: 100%;
-        text-align: center; /* Center the links */
-    }
-
-    .navbar img {
-        margin-bottom: 10px; /* Add space below the logo */
-    }
 
     .button-container {
         margin-top: 20px;
